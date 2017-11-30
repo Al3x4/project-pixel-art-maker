@@ -1,5 +1,5 @@
 // Select color input
-let selectedColor = "red";
+let selectedColor = $("#colorPicker").val();
 // Select size input
 
 
@@ -26,12 +26,13 @@ function makeGrid() {
 }
 
 //function to change backgorun
-// function tint(){
-//   $("this").css({
-//       "background-color": selectedColor,
-//       "border": "none"
-//     });
-// }
+function tint(){
+  selectedColor = $("#colorPicker").val();
+  $(this).css({
+    "background-color": selectedColor,
+    "border": "none"
+  });
+}
 
 
 
@@ -39,11 +40,5 @@ function makeGrid() {
 //create new grid o button click
 $(":submit").click(makeGrid);
 
-
 //When a cell is clicked, or mouse is down, change the background color
-$("#pixel_canvas").on("click mousedown", "td", function(){
-  $(this).css({
-      "background-color": selectedColor,
-      "border": "none"
-    });
-});
+$("#pixel_canvas").on("mousedown", "td", tint);
