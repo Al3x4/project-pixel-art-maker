@@ -1,8 +1,10 @@
 // Select color input
+let selectedColor = "red";
 // Select size input
 
-// When size is submitted by the user, call makeGrid()
-$(":submit").click(makeGrid);
+
+//FUNCTIONS
+//function to clear existing grid and make a new grid
 function makeGrid() {
   //clears existing table
   $("#pixel_canvas").empty();
@@ -21,5 +23,27 @@ function makeGrid() {
       $("#pixel_canvas > tr:last").append("<td></td>");
     }
   }
-
 }
+
+//function to change backgorun
+// function tint(){
+//   $("this").css({
+//       "background-color": selectedColor,
+//       "border": "none"
+//     });
+// }
+
+
+
+//ACTIONS
+//create new grid o button click
+$(":submit").click(makeGrid);
+
+
+//When a cell is clicked, or mouse is down, change the background color
+$("#pixel_canvas").on("click mousedown", "td", function(){
+  $(this).css({
+      "background-color": selectedColor,
+      "border": "none"
+    });
+});
