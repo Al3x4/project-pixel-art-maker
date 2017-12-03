@@ -5,11 +5,11 @@ let selectedColor = $("#colorPicker").val();
 
 //FUNCTIONS
 //function to clear existing grid and make a new grid
-function makeGrid() {
+function makeGrid(evt) {
   //clears existing table
   $("#pixel_canvas").empty();
   //prevent page from refreshing
-  event.preventDefault();
+  evt.preventDefault();
   //get values for table width and height
   const tableWidth = $("#input_width").val();
   const tableHeight = $("#input_height").val();
@@ -21,6 +21,7 @@ function makeGrid() {
     for (let x=0; x<tableWidth; x++){
       //insert cell into html
       $("#pixel_canvas > tr:last").append("<td></td>");
+      console.log("have cells");
     }
   }
 }
