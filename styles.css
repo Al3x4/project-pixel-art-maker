@@ -19,7 +19,7 @@ h2:first-of-type {
 table,
 td {
   box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid #898989;
 }
 
 table {
