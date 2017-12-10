@@ -49,11 +49,11 @@ function tint(e){
 
 //ACTIONS
 //create new grid o button click
-$(':submit').click(makeGrid);
+$('input[type="submit"]').click(makeGrid);
 
 //When a cell is clicked, or mouse is down, change the background color
 $('#pixel_canvas').on('mousedown','td', tint);
-
+$('input[type="number"]').on('change',makeGrid);
 
 //TODO:make table change height and width dinamically as the values are changed
 //TODO:make a nicer color picker
