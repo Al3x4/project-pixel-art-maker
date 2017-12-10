@@ -50,7 +50,7 @@ function tint(e){
 
 //ACTIONS
 //create new grid o button click
-$('input[type="submit"]').click(makeGrid);
+$('button').click(makeGrid);
 
 //When a cell is clicked, or mouse is down, change the background color
 $('#pixel_canvas').on('mousedown','td', tint);

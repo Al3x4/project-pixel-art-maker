@@ -5,32 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pixel Art Maker!</title>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Londrina+Sketch|Amatic+SC" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
-  <div class="container">
+  <div class="checkered">
     <h1>Lab: Pixel Art Maker</h1>
-  
-    <h2>Choose Grid Size</h2>
-    <form id="sizePicker">
-        Grid Height:
-        <input type="number" id="input_height" name="height" min="1" value="5">
-        Grid Width:
-        <input type="number" id="input_width" name="width" min="1" value="5">
-        <input type="submit" value="New Grid">
-    </form>
+    <div class="container">
+      <div class="container-item">
+        <h2>Choose Grid Size</h2>
+        <form id="sizePicker">
+          <div class="form-item">
+            <label for="height">Height </label>
+            <input type="number" id="input_height" name="height" min="1" value="10">
+          </div>
+          <div class="form-item">
+            <label for="width">Width </label>
+            <input type="number" id="input_width" name="width" min="1" value="10">
+          </div>
+        </form>
+      </div>
 
-    <h2>Pick A Color</h2>
-    <input  class="jscolor" id="colorPicker">
-
-    <h2>Design Canvas</h2>
-    <div class="canvas-window">
-      <table id="pixel_canvas"></table>
+      <div class="container-item">
+        <h2>Pick A Color</h2>
+        <input  class="jscolor" id="colorPicker" value="436d7d">
+      </div>
     </div>
+    <button>
+      New Grid
+    </button>
   </div>
-
+  <table id="pixel_canvas"></table>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./script/jscolor.min.js"></script>
