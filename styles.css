@@ -47,6 +47,13 @@ input[type=number] {
     width: 6em;
 }
 
+#colorPicker {
+  width:120px;
+  text-align: center;
+  height:50px;
+  border: none;
+  outline: none;
+}
 
 
 .container {

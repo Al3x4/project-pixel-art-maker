@@ -1,5 +1,6 @@
 // Select color input
-let selectedColor = $('#colorPicker').val();
+$('#colorPicker').show();
+let selectedColor = '#' + $('#colorPicker').val();
 // Select size input
 
 //FUNCTIONS
@@ -32,7 +33,7 @@ function tint(e){
   e.preventDefault();
 
   clicked = true;
-  selectedColor = $('#colorPicker').val();
+  selectedColor = '#' + $('#colorPicker').val();
   $(this).css({
     'background-color': selectedColor
   });
