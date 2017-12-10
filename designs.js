@@ -26,10 +26,21 @@ function makeGrid(evt) {
 }
 
 //function to change background
+let clicked = false;
 function tint(){
+  clicked = true;
   selectedColor = $('#colorPicker').val();
   $(this).css({
-    'background-color': selectedColor,
+    'background-color': selectedColor
+  });
+  $('#pixel_canvas').on('mouseenter','td', function(){
+    if (clicked === true){
+      console.log("entered cell");
+      $(this).css("background-color",selectedColor);
+    };
+  });
+  $('#pixel_canvas').on('mouseup','td', function(){
+    clicked = false;
   });
 }
 
@@ -38,7 +49,7 @@ function tint(){
 $(':submit').click(makeGrid);
 
 //When a cell is clicked, or mouse is down, change the background color
-$('#pixel_canvas').on('mousedown', 'td', tint);
+$('#pixel_canvas').on('mousedown','td', tint);
 
 //TODO: make the app work with click and drag
 //TODO:make table change height and width dinamically as the values are changed
