@@ -170,7 +170,10 @@ $('#pixel_canvas').on('mousedown','td', function(evt){
 });
 
 
-$('#pixel_canvas').on('contextmenu', 'td', erase);
+$('#pixel_canvas').on('contextmenu', 'td', function(e){
+  e.preventDefault();
+  $(this).css('background-color','#ffffff');
+});
 
 
 // $('#pixel_canvas').on('keydown', 'td', function(){
@@ -186,6 +189,7 @@ $('#pixel_canvas').on('contextmenu', 'td', erase);
 $('input[type="number"]').on('mouseenter',store);
 $('input[type="number"]').on('mouseup',store);
 $('input[type="number"]').on('change',addLines);
+
 $('#colorPicker').on('change', function(){
   selectedColor = '#' + $('#colorPicker').val();
 });
