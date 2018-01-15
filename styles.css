@@ -115,6 +115,7 @@ button {
 table {
   border-collapse: collapse;
   margin: 5vh auto;
+  cursor: url('cursor.gif'), crosshair;
 }
 
 tr {
@@ -125,5 +126,9 @@ td {
   box-sizing: border-box;
   border: 1px solid #898989;
   width: 20px;
-  cursor: url('cursor.gif'), crosshair;
+
+}
+
+.eyedropper {
+  cursor: url('eyedropper.gif'), crosshair!important;
 }

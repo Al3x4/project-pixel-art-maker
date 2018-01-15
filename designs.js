@@ -86,7 +86,6 @@ function tint(e){
   //stops dragging the colored cells
   e.preventDefault();
   clicked = true;
-  selectedColor = '#' + $('#colorPicker').val();
   $(this).css({
     'background-color': selectedColor
   });
@@ -101,26 +100,41 @@ function tint(e){
   });
 }
 
+//function to convert rgb to hex
+function rgbToHex(rgb) {
+  const hex = Number(rgb).toString(16);
+  if (hex.length < 2) {
+       hex = "0" + hex;
+  }
+  return hex;
+};
+
 //function to pick a color used in the table with shift+click
 function eyedropper(evt){
-  if (evt.shiftKey) {
-    console.log("hello");
-    $(this).css({
-      'cursor': "url('eyedropper.gif')"
-    });
+    if (evt.shiftKey) {
+    evt.preventDefault();
+    selectedColor = $(this).css("background-color");
+    //add the picked color as the color picker's background
+    $('#colorPicker').css('background-color', selectedColor);
+    //change the color picker value
+    $('#colorPicker').val(rgbToHex(selectedColor).substring(1));
   }
-  console.log("keydown not registered");
-  // selectedColor=$(this).
 }
-//change cursor to color picker when shift is pressed
-//take color of the target td
-//make selected color be that color
 
 //function to erase cell cell
 function erase(evt){
+  //stops the appearance of the menu
   evt.preventDefault();
-  $(this).css({
-    'background-color': '#ffffff'
+  $(this).css('background-color','#ffffff');
+  clicked = true;
+  $('#pixel_canvas').on('mouseenter','td', function(){
+    if (clicked === true){
+      console.log('entered cell');
+      $(this).css('background-color','#ffffff');
+    };
+  });
+  $('html').on('mouseup', function(){
+    clicked = false;
   });
 }
 
@@ -144,12 +158,37 @@ $('button').click(makeGrid);
 
 //When a cell is clicked, or mouse is down, change the background color
 $('#pixel_canvas').on('click','td', eyedropper);
-$('#pixel_canvas').on('mousedown','td', tint);
+$('#pixel_canvas').on('mousedown','td', function(evt){
+  switch (evt.which){
+    case 1: tint(evt);
+      break;
+    case 3 : erase(evt);
+      break;
+    default: console.log("fu");
+
+  }
+});
+
+
 $('#pixel_canvas').on('contextmenu', 'td', erase);
+
+
+// $('#pixel_canvas').on('keydown', 'td', function(){
+//   //change cursor to color picker when shift is pressed
+//   $(this).addClass('eyedropper');
+// });
+//
+// $('#pixel_canvas').on('keyup', 'td', function(){
+//   //change cursor to color picker when shift is released
+//   $(this).removeClass('eyedropper');
+// });
+
 $('input[type="number"]').on('mouseenter',store);
 $('input[type="number"]').on('mouseup',store);
 $('input[type="number"]').on('change',addLines);
-
+$('#colorPicker').on('change', function(){
+  selectedColor = '#' + $('#colorPicker').val();
+});
 
 
 //TODO:make a nicer color picker
