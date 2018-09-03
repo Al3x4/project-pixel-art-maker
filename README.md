@@ -1,16 +1,10 @@
 # Pixel Art Maker Project
+Project part of the Udacity Front-end Nanodegree
 
-## Table of Contents
+## How to view, run and play
+ - clone or download this repository
+ - open the `html`file in your browser
+ - click to paint, right-click to delete, shift+click to sample an already used colour
+ 
+Access the live version [here](https://al3x4.github.io/project-pixel-art-maker/). For the best experience, visit this site on a desktop computer. 
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
-
-## Instructions
-
-To get started, open `designs.js` and start building out the app's functionality.
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
